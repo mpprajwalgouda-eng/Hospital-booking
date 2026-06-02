@@ -23,7 +23,14 @@ const PORT = process.env.PORT || 5000;
 
 connectDatabase();
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(
+  cors({
+    origin: [
+      'https://6a1e720320ecf719f6b0b5a2--reliable-banoffee-5518a4.netlify.app'
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
@@ -46,5 +53,5 @@ app.use(errorHandler);
 const io = initSocket(server);
 
 server.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
+  console.log(`Backend server running on https://hospital-booking-backend-4upp.onrender.com:${PORT}`);
 });
